@@ -1,0 +1,287 @@
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+
+//Variables
+$primary: #FF7000;
+$secondary: #FFCB68;
+$text-color:#333;
+
+
+//Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+//Custom CSS
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+header {
+    height: 64px;
+    padding: 0;
+    margin: 0;
+}
+nav {
+    background-color: var(--bs-body-bg);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.31);
+
+    .navbar-brand {
+        span {     
+            &::after {
+                content: 'o:)';
+                color: $primary;
+            }            
+        }
+    }
+
+    .navbar-toggler {
+        border: 0;
+        border-radius: 0;
+        
+        &:hover {
+            background-color: $primary;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+
+    }
+
+
+    .nav-link {
+        font-weight: 500;
+        position: relative;
+        transition: all .3s ease;
+
+        &.active{
+            color:$primary !important;
+            font-weight: 700;
+        }
+
+    }
+
+    li.dropdown:hover > ul.dropdown-menu {
+            display: block;
+    }
+    
+
+    .dropdown-menu {
+        border: 0;
+    }
+
+    .dropdown-item {
+        &:hover {
+            color: $primary;
+            text-decoration: underline;
+        }
+
+    }
+
+    .dropdown-toggle::after {
+        display: none;        
+    }
+
+    ul.navbar-nav, .container {
+        background-color: var(--bs-body-bg);
+
+    }
+
+    
+}
+
+#hero {
+    position: relative;
+    overflow: hidden;
+    margin-top: -22px;
+    min-height: 40vh;
+
+    h1 {
+        font-size: 40px;
+        text-transform: uppercase;
+        letter-spacing: -0.15rem;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+#backToTop {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $secondary;
+    background-color: $white;
+    color:$text-color;
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width:992px) {
+
+    .navbar-brand {
+        z-index: 1;
+        
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35rem;
+            z-index: 1;
+            transition: all .3s ease;
+        }
+        span {
+            position: absolute;
+            top: 0px;
+            left: 115px;
+            z-index: 2;
+            font-size:42px;
+            font-weight: 700;
+            color: $text-color;
+            transition: all .3s ease;
+
+        }
+
+        &.fit {
+            img {
+                left: 1rem;
+                width: 25rem;
+            }
+
+            span {
+                font-size: 32px;
+                left: 5rem;
+            }
+        }
+    }
+
+    .navbar-nav {
+        gap: 18px;
+    }
+
+    .nav-link {
+        &:hover {
+            color: $primary !important;
+            text-decoration: underline;
+        }
+
+        &::after {
+            font-family: 'FontAwesome';
+            content: '\f077';
+            position: absolute;
+            left: 50%;
+            bottom: -22px;
+            transition: all .3s ease;
+            opacity: 0;
+            transform: translate(-50%);
+
+        }
+        &:hover::after {
+            bottom: -12px;
+            opacity: 1;
+        }
+    }
+
+    #hero {
+
+        margin-top: -12px;
+        min-height: 60vh;
+        h1 {
+            font-size: 48px;
+        }
+        h2 {
+            font-size: 24px;            
+        }
+
+        .container {
+            z-index: 2;
+        }
+        .clouds {
+            
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            img:nth-child(1) {
+                animation: fly 45s linear infinite;
+            }
+
+            img:nth-child(2) {
+                animation: fly 25s linear infinite;
+            }
+
+            img:last-child {
+                animation: fly 35s linear infinite;
+            }
+        }
+    }
+
+    #intro {
+        background-image: url('images/basic.png');
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+    }
+    
+}
+
+@media screen and (min-width:1300px) {
+    .navbar-brand {
+        z-index: 1;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45rem;
+            z-index: 1;
+        }
+        span {
+            position: absolute;
+            top: 0px;
+            left: 145px;
+            z-index: 2;
+            font-size: 58px;
+            font-weight: 700;
+            color: $text-color;
+
+        }
+
+        &.fit {
+            img {
+                left: 14rem;
+                width: 25rem;
+            }
+
+            span {
+                font-size: 32px;
+                left: 18rem;
+            }
+        }
+    }
+
+
+}
+
+
+//Animace
+@keyframes fly {
+    0% {
+        transform: translate(125%);
+    }
+    50% {
+        transform: translate(0%, -50%);
+    }
+    100% {
+        transform: translate(-100%);
+    }
+    
+}
